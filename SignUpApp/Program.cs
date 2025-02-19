@@ -39,16 +39,16 @@ builder.Services.AddScoped<IUserService, UserService>();
 //builder.services.AddScoped<IUserService,JwtMiddleware>();
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
+// making swagger available for both development and production
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
         c.RoutePrefix = string.Empty; // Swagger UI at app root
     });
-}
+//}
 
 //app.UseHttpsRedirection();
 app.UseStaticFiles();

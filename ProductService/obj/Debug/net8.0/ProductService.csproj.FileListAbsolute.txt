@@ -64,3 +64,4 @@
 /Users/lakshmiprashanthm/Documents/Construction App/ProductService/obj/Debug/net8.0/ProductService.pdb
 /Users/lakshmiprashanthm/Documents/Construction App/ProductService/obj/Debug/net8.0/ProductService.genruntimeconfig.cache
 /Users/lakshmiprashanthm/Documents/Construction App/ProductService/obj/Debug/net8.0/ref/ProductService.dll
+/Users/lakshmiprashanthm/Documents/Construction App/ProductService/obj/Debug/net8.0/ProductService.sourcelink.json
