@@ -1,68 +1,68 @@
 
-<div [style.backgroundImage]="'url(/assets/illustration-construction-site.jpg)'" 
+<div [style.backgroundImage]="'url(/assets/illustration-construction-site.jpg)'"
      class="container-fluid bg-white d-flex vh-100"
      style="height: 100vh; background-size: cover; background-position: center; background-repeat: no-repeat;">
      <div class="row m-auto">
       <div class="col-12" *ngIf="!signIn">
         <form [formGroup]="form" (ngSubmit)="onSubmit()" class="border bg-light rounded p-4 shadow justify-content-end">
           <h2 class="text-center mb-4">Sign Up</h2>
-          
-          
+
+
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" id="username" formControlName="name" class="form-control" placeholder="Enter your username" required>
           </div>
 
-          
+
             <div class="mb-3">
               <label for="Email" class="form-label">Email</label>
               <input type="text" id="Email" formControlName="emailId" class="form-control" placeholder="Enter your Email" required>
             </div>
-          
-          
+
+
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" id="password" formControlName="password"   class="form-control" placeholder="Enter your password" required>
           </div>
-          
-          
+
+
           <div class="d-grid">
             <button type="submit" class="btn btn-primary">Register</button>
           </div>
              <h6 class="text-center">or</h6>
              <small>If you already have an Account? <a href="/SignIn"> Sign In</a></small>
-          
+
         </form>
       </div>
 
       <div class="col-12" *ngIf="signIn">
         <form class="border bg-light rounded p-4 shadow justify-content-end">
-          <h2 class="text-center mb-4">Sign In</h2>
-          
-          
+          <h1 class="text-center mb-4">Sign In</h1>
+
+
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" id="username" class="form-control" placeholder="Enter your username" required>
           </div>
 
-          
-          
-          
+
+
+
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
           </div>
-          
-          
+
+
           <div class="d-grid">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>
-            
+
         </form>
       </div>
 
 </div>
 
-   
-  
+
+
 
