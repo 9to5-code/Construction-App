@@ -1,0 +1,15 @@
+/Users/lakshmiprashanthm/Documents/Construction App/test/bin/Debug/net8.0/test
+/Users/lakshmiprashanthm/Documents/Construction App/test/bin/Debug/net8.0/test.deps.json
+/Users/lakshmiprashanthm/Documents/Construction App/test/bin/Debug/net8.0/test.runtimeconfig.json
+/Users/lakshmiprashanthm/Documents/Construction App/test/bin/Debug/net8.0/test.dll
+/Users/lakshmiprashanthm/Documents/Construction App/test/bin/Debug/net8.0/test.pdb
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/test.GeneratedMSBuildEditorConfig.editorconfig
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/test.AssemblyInfoInputs.cache
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/test.AssemblyInfo.cs
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/test.csproj.CoreCompileInputs.cache
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/test.sourcelink.json
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/test.dll
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/refint/test.dll
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/test.pdb
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/test.genruntimeconfig.cache
+/Users/lakshmiprashanthm/Documents/Construction App/test/obj/Debug/net8.0/ref/test.dll

@@ -1,0 +1,28 @@
+
+
+<div class="p-5">
+
+  <h2 class="text-center">Attendance detail</h2>
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{ user.id }}</th>
+        <td>{{ user.first }}</td>
+        <td>{{ user.last || '-' }}</td>  <!-- Show '-' if last name is missing -->
+        <td>{{ user.handle }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <nav aria-label="User pagination" class=" d-flex justify-content-between ">
+    <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="user.length" [maxSize]="2"
+    [rotate]="true"  size="sm" boundaryLinks="true"></ngb-pagination>
+  </nav>
+</div>

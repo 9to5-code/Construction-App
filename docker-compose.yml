@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: ./angular-frontend/Dockerfile
+    ports:
+      - "4200:80"
+    networks:
+      - app-network
+
+  ocelot:
+    build:
+      context: .
+      dockerfile: ./OcelotGateway/Dockerfile
+    ports:
+      - "5140:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    depends_on:
+      - product_service
+    networks:
+      - app-network
+
+  product_service:
+    build:
+      context: .
+      dockerfile: ./ProductService/Dockerfile
+    ports:
+      - "5079:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - app-network 
+  
+  
+
+  dotnet-api:
+    build:
+      context: .
+      dockerfile: ./SignUpApp/Dockerfile
+    ports:
+      - "5079:80"
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - app-network 
+
+
+networks:
+  app-network:
+    driver: bridge
