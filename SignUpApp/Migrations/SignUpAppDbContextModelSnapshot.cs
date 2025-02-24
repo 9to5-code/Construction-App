@@ -39,7 +39,7 @@ namespace SignUpApp.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Membership");
+                    b.ToTable("Membership", (string)null);
                 });
 
             modelBuilder.Entity("SignUpApp.Model.User", b =>
@@ -64,7 +64,7 @@ namespace SignUpApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("SignUpApp.Model.Membership", b =>

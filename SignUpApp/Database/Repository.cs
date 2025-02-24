@@ -7,7 +7,7 @@ using SignUpApp.Model;
 
 namespace SignUpApp.Database
 {
-   public class Repository<T> : IRepository<T> where T : class
+   public  class Repository<T> : IRepository<T> where T : class
 {
     private readonly SignUpAppDbContext _context;
     private readonly DbSet<T> _dbSet;
@@ -56,6 +56,12 @@ namespace SignUpApp.Database
             await _context.SaveChangesAsync();
         }
     }
+
+    public async Task create(T entity)
+    {
+         _dbSet.FromSqlRaw("EXEC insertUser @p0,@p2","taru","taru@gmail.com");
+        await _context.SaveChangesAsync();
 }
 
+}
 }
