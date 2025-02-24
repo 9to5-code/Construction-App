@@ -26,6 +26,7 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
     - name: Install Docker Compose
@@ -34,7 +35,10 @@ jobs:
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version
 
-    - name: Build and Deploy
+    - name: Build and run with Docker Compose
       run: |
-        docker-compose up --build -d docker-compose ps
-
+          docker-compose up --build -d
+  
+    - name: Show Docker Compose services
+      run: |
+          docker-compose ps
