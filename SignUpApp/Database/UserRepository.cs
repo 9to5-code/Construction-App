@@ -38,7 +38,7 @@ namespace SignUpApp.Database
         if (user == null)
             throw new ArgumentNullException(nameof(user));
         //user.Password = PasswordHash.HashPassword(user.Password);
-        await Repository<User>.create(user);
+       // await Repository<User>.create(user);
     }
 
     public async Task UpdateUserAsync(User user)
