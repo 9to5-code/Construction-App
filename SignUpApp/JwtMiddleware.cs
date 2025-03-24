@@ -25,7 +25,7 @@ namespace SignUpApp
            
         }
         public async Task Invoke(HttpContext context,IUserService userservice)
-        {
+        {  Console.WriteLine($"Middleware Service ID: {userservice.Id}");
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
             if (token != null)
                 attachUserToContext(context,userservice, token);

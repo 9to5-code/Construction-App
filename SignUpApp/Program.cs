@@ -36,6 +36,7 @@ builder.Services.AddDbContext<SignUpAppDbContext>(options =>
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped(typeof(Repository<>));
 //builder.services.AddScoped<IUserService,JwtMiddleware>();
 
 var app = builder.Build();
@@ -49,6 +50,7 @@ var app = builder.Build();
         c.RoutePrefix = string.Empty; // Swagger UI at app root
     });
 //}
+app.MapGet("/Hello", () =>  "Hello World!");// minimal api
 
 //app.UseHttpsRedirection();
 app.UseStaticFiles();

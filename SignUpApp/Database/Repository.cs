@@ -4,13 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SignUpApp.Model;
+using MySqlConnector;
+
 
 namespace SignUpApp.Database
 {
    public  class Repository<T> : IRepository<T> where T : class
 {
-    private readonly SignUpAppDbContext _context;
+    private  readonly SignUpAppDbContext _context;
     private readonly DbSet<T> _dbSet;
+    public Repository(){}
 
     public Repository(SignUpAppDbContext context)
     {
@@ -35,11 +38,33 @@ namespace SignUpApp.Database
 
     
 
-    public async Task AddAsync(T entity)
+   public async Task AddAsync(T entity)
+{
+    if (entity is User user)
     {
-        await _dbSet.AddAsync(entity);
-        await _context.SaveChangesAsync();
+        try
+        {
+            var nameParam = new MySqlParameter("@p0", MySqlDbType.VarChar, 100) { Value = user.Name };
+            var emailParam = new MySqlParameter("@p1", MySqlDbType.VarChar, 255) { Value = user.EmailId };
+
+            await _context.Database.ExecuteSqlRawAsync("CALL insertUser(@p0, @p1)", nameParam, emailParam);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+            if (ex.InnerException != null)
+                Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+            throw;
+        }
     }
+    else
+    {
+        throw new InvalidOperationException("Entity is not of type User");
+    }
+}
+
+
+
 
     public async Task UpdateAsync(T entity)
     {
@@ -57,11 +82,30 @@ namespace SignUpApp.Database
         }
     }
 
-    public async Task create(T entity)
+    public  async Task create(T entity)
     {
-         _dbSet.FromSqlRaw("EXEC insertUser @p0,@p2","taru","taru@gmail.com");
-        await _context.SaveChangesAsync();
-}
+         if (entity is User user)
+    {
+        try
+        {
+            var nameParam = new MySqlParameter("@p0", MySqlDbType.VarChar, 100) { Value = user.Name };
+            var emailParam = new MySqlParameter("@p1", MySqlDbType.VarChar, 255) { Value = user.EmailId };
 
+            await _context.Database.ExecuteSqlRawAsync("CALL insertUser(@p0, @p1)", nameParam, emailParam);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+            if (ex.InnerException != null)
+                Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
+            throw;
+        }
+    }
+    else
+    {
+        throw new InvalidOperationException("Entity is not of type User");
+    }
+
+}
 }
 }

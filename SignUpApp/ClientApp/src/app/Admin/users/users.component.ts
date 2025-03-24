@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-users',
   standalone: false,
-  imports: [CommonModule],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })

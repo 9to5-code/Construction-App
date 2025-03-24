@@ -4,7 +4,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-logout',
   standalone: false,
-  imports: [],
   templateUrl: './logout.component.html',
   styleUrl: './logout.component.css'
 })

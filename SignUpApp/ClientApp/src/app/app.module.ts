@@ -19,6 +19,11 @@ import { CommonModule } from '@angular/common';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LogoutComponent } from './logout/logout.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,13 +35,17 @@ import { LogoutComponent } from './logout/logout.component';
     SidebarComponent,
     UsersComponent,
     AttendanceComponent,
-    LogoutComponent
+    LogoutComponent,
+
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule ,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -52,10 +61,13 @@ import { LogoutComponent } from './logout/logout.component';
       ], },
     ]),
     CommonModule,
-    NgbModule
+    NgbModule,
+    MatAutocompleteModule,
+    MatTableModule
   ],
   providers: [{ provide: 'BASE_URL', useValue: 'http://localhost:5072/' },
-  provideHttpClient(withInterceptors([authInterceptor]))],
+  provideHttpClient(withInterceptors([authInterceptor])),
+  provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

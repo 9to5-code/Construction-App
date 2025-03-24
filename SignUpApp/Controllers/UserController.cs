@@ -23,7 +23,7 @@ public class UserController : ControllerBase
 
     [HttpGet]
     public async Task<IActionResult> GetAllUsers()
-    {
+    { Console.WriteLine($"controllerService Id: {_userService.Id}");
         var users = await _userService.GetAllUsersAsync();
         return Ok(users);
     }

@@ -10,6 +10,7 @@ public interface IUserService
     public Task CreateUserAsync(User user);
      Task UpdateUserAsync(User user);
      Task DeleteUserAsync(int id);
+      public Guid Id{get;}
 
     public Task<User> SearchUser(string searchKey);
 

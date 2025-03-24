@@ -7,6 +7,8 @@ namespace SignUpApp.Database
     public class UserService : IUserService
 {
     private readonly IRepository<User> _userRepository;
+    //private readonly Repository<User> _repository;
+   public  Guid Id { get; } = Guid.NewGuid();
 
     public UserService(IRepository<User> userRepository)
     {
@@ -38,7 +40,7 @@ namespace SignUpApp.Database
         if (user == null)
             throw new ArgumentNullException(nameof(user));
         //user.Password = PasswordHash.HashPassword(user.Password);
-       // await Repository<User>.create(user);
+       await  _userRepository.AddAsync(user);
     }
 
     public async Task UpdateUserAsync(User user)
