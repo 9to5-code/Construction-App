@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
+import { MatIconModule } from '@angular/material/icon'
+import {MatMenuModule} from '@angular/material/menu';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -24,6 +25,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,7 +67,12 @@ import { MatTableModule } from '@angular/material/table';
     CommonModule,
     NgbModule,
     MatAutocompleteModule,
-    MatTableModule
+    MatTableModule,
+    MatIconModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatButtonModule
   ],
   providers: [{ provide: 'BASE_URL', useValue: 'http://localhost:5072/' },
   provideHttpClient(withInterceptors([authInterceptor])),

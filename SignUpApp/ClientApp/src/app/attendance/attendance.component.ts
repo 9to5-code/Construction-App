@@ -15,7 +15,7 @@ import { Observable, map, startWith } from 'rxjs';
 })
 export class AttendanceComponent implements OnInit {
 public user:User[]  = [];
-  displayedColumns: string[] = ['id', 'name', 'emailId'];
+  displayedColumns: string[] = ['id', 'name', 'emailId','actions'];
   dataSource = new MatTableDataSource<User>([]);
 constructor(public UserService: UserService) { }
 myControl = new FormControl('');
@@ -41,6 +41,7 @@ private _filter(value: string): string[] {
   const filterValue = value.toLowerCase();
   return this.options.filter(option => option.toLowerCase().includes(filterValue));
 }
+
 
 
 

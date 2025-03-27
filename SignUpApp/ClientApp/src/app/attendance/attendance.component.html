@@ -1,6 +1,6 @@
 
 
-<div class="p-5">
+<div class="p-2">
 
   <h1 class="text-center text-bold ">User detail</h1>
 
@@ -41,6 +41,25 @@
     <ng-container matColumnDef="emailId">
       <th mat-header-cell *matHeaderCellDef> emailId </th>
       <td mat-cell *matCellDef="let element"> {{element.emailId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button [matMenuTriggerFor]="menu" disableRipple="true">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item >
+            <mat-icon>edit</mat-icon> Edit
+          </button>
+          <button mat-menu-item >
+            <mat-icon>delete</mat-icon> Delete
+          </button>
+        </mat-menu>
+
+
+      </td>
     </ng-container>
 
 
