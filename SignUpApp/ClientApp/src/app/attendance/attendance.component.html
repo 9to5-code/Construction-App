@@ -5,13 +5,13 @@
   <h1 class="text-center text-bold ">User detail</h1>
 
 
-  <div class="d-flex justify-content-end p-5">
+   <div class="d-flex justify-content-end p-5">
     <mat-form-field appearance="outline">
       <mat-label>Search Employee</mat-label>
       <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
 
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        <mat-option *ngFor="let option of filteredOptions" [value]="option">
           {{ option }}
         </mat-option>
       </mat-autocomplete>
@@ -50,7 +50,7 @@
           <mat-icon>more_vert</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item >
+          <button mat-menu-item  (click)="editUser('0ms', '0ms')">
             <mat-icon>edit</mat-icon> Edit
           </button>
           <button mat-menu-item >

@@ -36,6 +36,7 @@ builder.Services.AddDbContext<SignUpAppDbContext>(options =>
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped(typeof(Repository<>));
 //builder.services.AddScoped<IUserService,JwtMiddleware>();
 

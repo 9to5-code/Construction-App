@@ -1,19 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { PeriodicElement, User } from '../models/user';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { UserService } from '../services/user.service';
 import { Observable, map, startWith } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { EditUserComponent } from '../Admin/users/edit-user/edit-user.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-attendance',
   standalone: false,
-
+ imports: [ MatButtonModule, MatFormFieldModule,
+  MatAutocompleteModule,
+  MatTableModule,
+  MatIconModule,
+  MatMenuModule,
+  MatDialogModule,
+  MatButtonModule,
+  MatButtonModule],
   templateUrl: './attendance.component.html',
-  styleUrl: './attendance.component.css'
+  styleUrl: './attendance.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 export class AttendanceComponent implements OnInit {
+  readonly dialog = inject(MatDialog);
 public user:User[]  = [];
   displayedColumns: string[] = ['id', 'name', 'emailId','actions'];
   dataSource = new MatTableDataSource<User>([]);
@@ -43,10 +60,22 @@ private _filter(value: string): string[] {
 }
 
 
+editUser(enterAnimationDuration: string, exitAnimationDuration: string){
+  this.dialog.open(EditUserComponent, {
+    width: '250px',
+    enterAnimationDuration,
+    exitAnimationDuration,
+  });
+}
+
 
 
 }
 
+
+// deleteUser(user:User){
+
+// }
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},

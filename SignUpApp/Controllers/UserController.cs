@@ -69,5 +69,19 @@ public class UserController : ControllerBase
         var user =  await _userService.SearchUser(searchKey);
           return Ok(user);
     }
+
+   
+    [HttpGet("FetchMembership")]
+
+    public async Task<IActionResult> FetchMembership(string username)
+    {
+        var users = await _userService.FetchRole(username);
+        return Ok(users);
+    }
+    
+
+
+
+
 }
 }

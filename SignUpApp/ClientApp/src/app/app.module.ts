@@ -38,7 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
     SigninComponent,
     SidebarComponent,
     UsersComponent,
-    AttendanceComponent,
+
     LogoutComponent,
 
 
@@ -48,7 +48,7 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule ,
-    MatFormFieldModule,
+
     MatInputModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -63,6 +63,7 @@ import { MatButtonModule } from '@angular/material/button';
         { path: 'Logout', component: LogoutComponent },
 
       ], },
+      { path: 'feature', loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule) },
     ]),
     CommonModule,
     NgbModule,
@@ -72,7 +73,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatMenuModule,
     MatDialogModule,
     MatButtonModule,
-    MatButtonModule
+
   ],
   providers: [{ provide: 'BASE_URL', useValue: 'http://localhost:5072/' },
   provideHttpClient(withInterceptors([authInterceptor])),

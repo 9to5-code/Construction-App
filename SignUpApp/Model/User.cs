@@ -13,5 +13,7 @@ namespace SignUpApp.Model
         public string EmailId{get;set;}    
 
         public string Password{get;set;}
+
+        public Membership Membership { get; set; }
     }
 }

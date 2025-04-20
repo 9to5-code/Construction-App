@@ -16,7 +16,7 @@ namespace SignUpApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.2")
+                .HasAnnotation("ProductVersion", "8.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
@@ -29,6 +29,9 @@ namespace SignUpApp.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
@@ -37,9 +40,10 @@ namespace SignUpApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
-                    b.ToTable("Membership", (string)null);
+                    b.ToTable("Membership");
                 });
 
             modelBuilder.Entity("SignUpApp.Model.User", b =>
@@ -64,18 +68,24 @@ namespace SignUpApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("SignUpApp.Model.Membership", b =>
                 {
                     b.HasOne("SignUpApp.Model.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
+                        .WithOne("Membership")
+                        .HasForeignKey("SignUpApp.Model.Membership", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SignUpApp.Model.User", b =>
+                {
+                    b.Navigation("Membership")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

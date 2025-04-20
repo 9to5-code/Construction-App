@@ -12,10 +12,12 @@ namespace SignUpApp.Model
         public int UserId {get;set;}
         public User User { get; set; }
 
+        public int DepartmentId { get; set; }
+
     }
 
 
-    enum role {
+    enum RoleType {
      Owner =0,
       Admin,
 
