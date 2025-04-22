@@ -24,3 +24,12 @@
 .menu-button mat-icon {
   font-size: 20px;
 }
+
+
+
+.mat-header-cell {
+  position: fixed;
+  top: 0;
+  background: white; /* Ensure the header has a solid background */
+  z-index: 1; /* So it stays above rows */
+}

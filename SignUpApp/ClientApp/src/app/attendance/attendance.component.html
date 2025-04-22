@@ -5,13 +5,13 @@
   <h1 class="text-center text-bold ">User detail</h1>
 
 
-   <div class="d-flex justify-content-end p-5">
+   <div class="d-flex justify-content-end">
     <mat-form-field appearance="outline">
       <mat-label>Search Employee</mat-label>
       <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
 
       <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions" [value]="option">
+        <mat-option *ngFor="let option of filteredOptions| async" [value]="option">
           {{ option }}
         </mat-option>
       </mat-autocomplete>
@@ -61,10 +61,7 @@
 
       </td>
     </ng-container>
-
-
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>

@@ -27,6 +27,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { MatButtonModule } from '@angular/material/button';
     SigninComponent,
     SidebarComponent,
     UsersComponent,
-
+    AttendanceComponent,
     LogoutComponent,
 
 
@@ -47,7 +48,7 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
 
     MatInputModule,
     RouterModule.forRoot([
@@ -68,12 +69,15 @@ import { MatButtonModule } from '@angular/material/button';
     CommonModule,
     NgbModule,
     MatAutocompleteModule,
+
     MatTableModule,
     MatIconModule,
     MatMenuModule,
     MatDialogModule,
     MatButtonModule,
-
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
   providers: [{ provide: 'BASE_URL', useValue: 'http://localhost:5072/' },
   provideHttpClient(withInterceptors([authInterceptor])),

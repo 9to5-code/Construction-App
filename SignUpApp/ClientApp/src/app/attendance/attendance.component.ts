@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { FormControl } from '@angular/forms';
-
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { PeriodicElement, User } from '../models/user';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { UserService } from '../services/user.service';
@@ -12,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { NgForOf } from '@angular/common';
 
 @Component({
   selector: 'app-attendance',
@@ -23,8 +23,11 @@ import { MatMenuModule } from '@angular/material/menu';
   MatMenuModule,
   MatDialogModule,
   MatButtonModule,
+  ReactiveFormsModule,
+  MatFormFieldModule,
+  NgForOf,
   MatButtonModule],
-  templateUrl: './attendance.component.html',
+templateUrl: './attendance.component.html',
   styleUrl: './attendance.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 
